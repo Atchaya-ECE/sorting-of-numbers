@@ -1,6 +1,7 @@
 # sorting-of-numbers
 ## Aim
 To write and execute an Assembly Language Program for sorting data in Ascending and  descending order using 8051 microcontroller on Keil software.
+
 ---
 
 ## Apparatus Required
@@ -21,16 +22,27 @@ To write and execute an Assembly Language Program for sorting data in Ascending 
 ---
 
 ## Program (Ascending order)
-
 ```asm
-
-
-
-
+ORG 0000H
+LOOP1:MOV R0,#40H
+MOV R6,#04H
+DEC R6
+LOOP:MOV A,@R0
+INC R0
+MOV B,@R0
+CJNE A,B,NEXT
+NEXT:JC DOWN
+MOV@R0,A
+DEC R0
+MOV@R0,B
+INCR0
+DOWN:DJNZ R6,LOOP
+MOV R1,#04H
+DJNZ R1,LOOP1
+END
 ```
 ## OUTPUT(Ascending order)
-
-
+<img width="1919" height="1143" alt="Screenshot 2026-02-21 091343" src="https://github.com/user-attachments/assets/ef3fd6b3-bab7-42b5-825d-8092973aa57b" />
 
 ---
 
@@ -49,16 +61,33 @@ To write and execute an Assembly Language Program for sorting data in Ascending 
 ## Program (Descending order)
 
 ```asm
-
-
-
-
+ORG 0000H
+LOOP1:MOV R0,#40H
+MOV R6,#04H
+DEC R6
+LOOP:MOV A,@R0
+INC R0
+MOV B,@R0
+CJNE A,B,NEXT
+NEXT:JNC DOWN
+MOV@R0,A
+DEC R0
+MOV@R0,B
+INC R0
+DOWN:DJNZ R6,LOOP
+MOV R1,#04H
+DJNZ R1,LOOP1
+END
 ```
+
 ## OUTPUT(Descending order)
-
-
+<img width="1919" height="1149" alt="Screenshot 2026-02-21 091643" src="https://github.com/user-attachments/assets/94384e69-678f-40fc-94bf-07eae2153932" />
 
 ---
-## RESULT:
+
+## CALCULATION
+<img width="1342" height="929" alt="image" src="https://github.com/user-attachments/assets/23e81920-5e5f-4d78-b95c-454b4ad55d10" />
+
+## RESULT
 Thus the sorting of given data was done using 8051 keil software.
 
